@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/home/">
+        {%csrf_token%}
+        <label for="income">Enter your income</label>
+        <input type="number" id="income" name="income" required>
+        <button type="submit">Calculate Tax</button>
+    </form>
+    <hr>
+    <h5>Payslip</h5>
+    <table>
+        <tbody>
+            <tr>
+                <th>Income(UGX)</th>
+                <td>{{income}}</td>
+            </tr>
+            <tr>
+                <th>Total PAYE(38%)</th>
+                <td>{{total_paye}}</td>
+            </tr>
+            <tr>
+                <th>Total NSSF(10%)</th>
+                <td>{{total_nssf}}</td>
+            </tr>
+            <tr>
+                <th>Total Deductions</th>
+                <td>{{total_deductions}}</td>
+            </tr>
+            <tr>
+                <th>Net Income</th>
+                <td>{{net_income}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
